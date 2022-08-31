@@ -7,6 +7,7 @@ import DishRow from '../components/DishRow';
 import { ArrowLeftIcon, StarIcon, LocationMarkerIcon, QuestionMarkCircleIcon, ChevronRightIcon } from 'react-native-heroicons/solid';
 import BasketIcon from '../components/BasketIcon';
 import { useDispatch } from 'react-redux';
+import { setRestaurant } from '../features/restaurantSlice'
 export default function RestaurantScreen() {
     const navigation = useNavigation();
     const dispatch = useDispatch();

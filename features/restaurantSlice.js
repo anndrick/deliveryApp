@@ -4,9 +4,11 @@ const initialState = {
     restaurant: {
         id: null,
         imgUrl: null,
-        dishes: null,
-        image: null,
         rating: null,
+        genre: null,
+        address: null,
+        short_description: null,
+        dishes: null,
     }
 }
 
@@ -20,8 +22,10 @@ export const restaurantSlice = createSlice({
     },
   })
   
-  export const { addToRestaurant, removeFromRestaurant } = restaurantSlice.actions;
+  export const { setRestaurant } = restaurantSlice.actions;
 
  export const selectRestaurant = (state) => state.restaurant.restaurant;
+
+
   
   export default restaurantSlice.reducer;

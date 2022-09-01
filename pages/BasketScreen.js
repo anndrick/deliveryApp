@@ -9,6 +9,8 @@ import { useState } from 'react';
 import { XCircleIcon } from 'react-native-heroicons/solid'
 import { urlFor } from '../sanity';
 import { removeFromBasket } from '../features/basketSlice';
+import { useLayoutEffect } from 'react';
+
 export default function BasketScreen() {
 
     const navigation = useNavigation();
@@ -17,13 +19,20 @@ export default function BasketScreen() {
     const [groupedItemsInBasket, setGroupedItemsInBasket] = useState([]);
     const dispatch = useDispatch();
 		const basketTotal = useSelector(selectBasketTotal);
+
     useMemo(() => {
         const groupedItems = items.reduce((results, item) => {
-            (results[items.id] = results[items.id] || []).push(item);
+            (results[item.id] = results[item.id] || []).push(item);
             return results;
         }, {})
         setGroupedItemsInBasket(groupedItems);
     }, [items])
+
+		useLayoutEffect(()=>{
+			navigation.setOptions({
+				headerShown: false,
+			})
+		}, [])
 
     return (
 			<SafeAreaView>
@@ -59,10 +68,10 @@ export default function BasketScreen() {
 							className='flex-row items-center space-x-3 bg-white py-2 px-5'	
 						>
 							<Text>{items.length}</Text>
-							{items[0]?.image && (<Image 
+							{/* {items[0].image && (<Image 
 								source={{uri: urlFor(items[0]?.image).url()}}
 								className='h-12 w-12 rounded-full'
-							/>)}
+							/>)} */}
 							<Text className='flex-1'>{items[0]?.name}</Text>
 							<Text className='text-gray-600'>{items[0]?.price}</Text>
 							<TouchableOpacity>
@@ -73,6 +82,7 @@ export default function BasketScreen() {
 						</View>
 					))}
 				</ScrollView>
+
 					<View className='p-5 bg-whitw mt-5 space-y-4'>
 
 						<View className='flex-row justify-between'>

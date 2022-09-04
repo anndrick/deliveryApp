@@ -48,8 +48,8 @@ export default function DeliveryScreen() {
         </SafeAreaView>
         <MapView
             initialRegion={{
-                latitude: restaurant.lat,
-                longitude: restaurant.long,
+                latitude: latitude,
+                longitude: longitude,
                 latitudeDelta: 0.005,
                 longitudeDelta: 0.005,
             }}
@@ -58,8 +58,8 @@ export default function DeliveryScreen() {
         >
             <Marker
                 coordinate={{
-                    latitude: restaurant.lat,
-                    longitude:restaurant.long,
+                    latitude: latitude,
+                    longitude: longitude,
                 }}
                 title={restaurant.title}
                 description={restaurant.description}

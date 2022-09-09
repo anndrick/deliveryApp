@@ -14,7 +14,7 @@ export default function PreparingOrderScreen() {
         }, 3000);
     },[])
   return (
-    <SafeAreaView className='flex-1 justify-center items-center'>
+    <SafeAreaView className='flex-1 justify-center items-center bg-gray-900'>
         <Animatable.Image
             source={require('../assets/3hm5mg.gif')}
             animation= 'slideInUp'

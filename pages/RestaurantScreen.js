@@ -7,7 +7,8 @@ import DishRow from '../components/DishRow';
 import { ArrowLeftIcon, StarIcon, LocationMarkerIcon, QuestionMarkCircleIcon, ChevronRightIcon } from 'react-native-heroicons/solid';
 import BasketIcon from '../components/BasketIcon';
 import { useDispatch } from 'react-redux';
-import { setRestaurant } from '../features/restaurantSlice'
+import { setRestaurant } from '../features/restaurantSlice';
+
 export default function RestaurantScreen() {
     const navigation = useNavigation();
     const dispatch = useDispatch();
@@ -31,42 +32,42 @@ export default function RestaurantScreen() {
   return (
     <>
       <BasketIcon className='z-1000'></BasketIcon>
-      <ScrollView>
+      <ScrollView className='bg-gray-900'>
         <View className='relative'>
           <Image
             source={{
               uri: urlFor(imgUrl).url(),
             }}
-            className='w-full h-56 bg-gray-300 p-4 rounded-lg'
+            className='w-full h-56 bg-gray-900 p-4 rounded-lg'
           />
           <TouchableOpacity className='absolute top-14 left-5 p-2 bg-gray-100 rounded-full'  onPress={navigation.goBack}>
             <ArrowLeftIcon size={20} color={'#00CCBB'}/>
           </TouchableOpacity>
         </View>
-        <View className='bg-white'>
+        <View className='bg-gray-900'>
           <View className='px-4 pt-4'>
-            <Text className='text-3xl font-bold'>{title}</Text>
+            <Text className='text-3xl font-bold text-white'>{title}</Text>
             <View className='flex-row space-x-2 my-1'>
               <View className='flex-row items-center space-x-1'>
                 <StarIcon size={22} opacity={0.5} color={'green'}/>
-                <Text className='text-xs text-gray-500'>{`${rating} ${genre}`}</Text>
+                <Text className='text-xs text-white'>{`${rating} ${genre}`}</Text>
               </View>
             </View>
             <View className='flex-row items-center space-x-1 mt-1'>
-              <LocationMarkerIcon color = 'gray' opacity = {0.4} size = {22}/>
-              <Text className = 'text-xs text-gray-500'>Nearby {address}</Text>
+              <LocationMarkerIcon color = 'white' opacity = {0.4} size = {22}/>
+              <Text className = 'text-xs text-white'>Nearby {address}</Text>
             </View>
-            <Text className='text-gray-500 mt-2 pb-4'>{short_description}</Text>
+            <Text className='text-white mt-2 pb-4'>{short_description}</Text>
           </View>
-          <TouchableOpacity className='flex-row items0center space-x-2 p-4 border-y border-gray-300'>
-            <QuestionMarkCircleIcon color='gray' opacity={0.5} size={22}/>
-            <Text className='pl-2 flex-1 text-md font-bold'>Have food allergy?</Text>
+          <TouchableOpacity className='flex-row items0center space-x-2 p-4 border-y border-gray-300' onPress={()=>navigation.navigate('FoodAllergy')}>
+            <QuestionMarkCircleIcon color='white' opacity={0.5} size={22}/>
+            <Text className='pl-2 flex-1 text-md font-bold text-white'>Have food allergy?</Text>
             <ChevronRightIcon color='#00CCBB'/>
           </TouchableOpacity>
         </View>
 
         <View>
-          <Text className='px-4 pt-6 mb-3 font-bold text-xl'>Menu</Text>
+          <Text className='px-4 pt-6 mb-3 font-bold text-xl text-white'>Menu</Text>
           {dishes?.map((dish => 
             <DishRow
               key={dish._id}
@@ -74,7 +75,7 @@ export default function RestaurantScreen() {
               name={dish.name}
               description={dish.short_description}
               price={dish.price}
-              image={dish.imgUrl}
+              image={dish.image}
             />
           ))}
         </View>

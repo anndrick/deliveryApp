@@ -28,9 +28,10 @@ export default function Categories() {
         paddingTop: 10,
       }}
       horizontal 
-      showsHorizontalScrollIndicator={false}>
+      showsHorizontalScrollIndicator={false}
+      >
         {categories?.map((category) => 
-          <CategoryCard key = {category._id} imgUrl={urlFor(category.image).width(200).url()} title={category.name} alt='xd' />
+          <CategoryCard key = {category._id} imgUrl={urlFor(category.image).width(200).url()} title={category.name} alt='xd'/>
         )}
     </ScrollView>
   );

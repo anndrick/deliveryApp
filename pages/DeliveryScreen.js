@@ -22,7 +22,7 @@ export default function DeliveryScreen() {
     else
         longitude = restaurant.long
   return (
-    <View className= 'bg-[#00CCBB] flex-1'>
+    <View className= 'bg-gray-900 flex-1'>
         <SafeAreaView className='z-50'>
             <View className='flex-row justify-between items-center p-5'>
                 <TouchableOpacity onPress={() => navigation.navigate('Home')}>
@@ -42,7 +42,7 @@ export default function DeliveryScreen() {
                     />
                 </View>
                 <Progress.Bar size={30} color='[#00CCBB]'/>
-                <Text className='mt-3 text-gray-500'> Your Order at {restaurant.title} is being prepared</Text>
+                <Text className='mt-3 text-gray-500'> Your Order at {restaurant.title} is comming to you by Juan Carlos Bodoque</Text>
                     
             </View>
         </SafeAreaView>
@@ -53,6 +53,7 @@ export default function DeliveryScreen() {
                 latitudeDelta: 0.005,
                 longitudeDelta: 0.005,
             }}
+            
             className='flex-1 mt-10 z-0'
             mapType='mutedStandard'
         >
@@ -60,6 +61,16 @@ export default function DeliveryScreen() {
                 coordinate={{
                     latitude: latitude,
                     longitude: longitude,
+                }}
+                title={restaurant.title}
+                description={restaurant.description}
+                identifier='origin'
+                pinColor='#00CCBB'
+            />
+            <Marker
+                coordinate={{
+                    latitude: latitude + 1,
+                    longitude: longitude - 1,
                 }}
                 title={restaurant.title}
                 description={restaurant.description}

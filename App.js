@@ -7,6 +7,9 @@ import RestaurantScreen from './pages/RestaurantScreen';
 import BasketScreen from './pages/BasketScreen';
 import PreparingOrderScreen from './pages/PreparingOrderScreen'
 import DeliveryScreen from './pages/DeliveryScreen'
+import UserInfo from './pages/UserInfo';
+import FoodAllergy from './pages/FoodAllergy';
+import CategoryRestaurant from './components/CategoryRestaurant';
 import { StatusBar } from 'react-native';
 import { Provider } from 'react-redux';
 import { store } from './store'
@@ -28,6 +31,9 @@ export default function App() {
             <Stack.Screen name='Basket' component={BasketScreen} options={{presentation: 'modal', headerShown: false}}/>
             <Stack.Screen name='PreparingOrderScreen' component={PreparingOrderScreen} options={{presentation: 'modal', headerShown: false}}/>
             <Stack.Screen name='Delivery' component={DeliveryScreen} options={{presentation: 'modal', headerShown: false}}/>
+            <Stack.Screen name='CategoryRestaurant' component={CategoryRestaurant} options={{presentation: 'modal', headerShown: false}}/>
+            <Stack.Screen name='UserInfo' component={UserInfo} options={{presentation: 'modal', headerShown: false}}/>
+            <Stack.Screen name='FoodAllergy' component={FoodAllergy} options={{presentation: 'modal', headerShown: false}}/>
            </Stack.Navigator>
         </TailwindProvider>
       </Provider>

@@ -14,22 +14,24 @@ export default function RestaurantCards({ id, imgUrl, title, rating, genre, addr
 					id, imgUrl, title, rating, genre, address, short_description, dishes, long, lat
 				})
 			}}
-			className = 'bg-white mr-3 shadow'>
+			className = ' bg-gray-700  mr-3 shadow m-5 rounded-xl'
+			style={{width: 300, height: 270}}
+		>
             <Image source= {{
 				uri: urlFor(imgUrl).url(),
             }}
-            className='h-36 w-64 rounded-sm'/>
-            <View className = 'px-3 pb-4 '>
+            className='h-36 w-64 rounded-md self-center mt-3 mx-2'/>
+            <View className = 'px-5 pb-4'>
 				<Text className = 'font-bold text-lg pt-2'>{title}</Text>
-				<View>
+				<View className='flex-row mt-1'>
 					<StarIcon color = 'green' opacity = {0.5} size = {22}></StarIcon>
 					<Text className='text-green-500'>{rating}  {genre}</Text>
 				</View>
-				<View>
-					<LocationMarkerIcon color = 'gray' opacity = {0.4} size = {22}/>
-					<Text className = 'text-xs text-gray-500'>Nearby {address}</Text>
+				<View className='flex-row mt-1'>
+					<LocationMarkerIcon color = 'white' opacity = {0.4} size = {22}/>
+					<Text className = 'text-xs text-white'>Nearby {address}</Text>
 				</View>
-		</View>
+			</View>
         </TouchableOpacity>
     )
         
